@@ -1,0 +1,17 @@
+name: PerformanceMonitor
+version: 1.7.0
+author: MsHax085
+main: me.mshax085.performanceMonitor.Monitor
+
+commands:
+  serverstate:
+    description: Show the server stats using a command
+    usage: /serverstate
+  ss:
+    description: Short-Command for serverstate
+    usage: /ss
+    
+permissions:
+  pmonitor.showstate:
+    description: Permission to show the server stats
+    default: op
