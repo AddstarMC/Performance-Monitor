@@ -17,24 +17,24 @@
     * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package me.mshax085.performanceMonitor.disk;
+package me.mshax085.performanceMonitor.monitors;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import me.mshax085.performanceMonitor.Monitor;
+import me.mshax085.performanceMonitor.PerformanceMonitor;
 
 /*
- * DiskFileSize
+ * DiskMonitor
  * 
  * @package     me.mshax085.performanceMonitor.disk
  * @category    Disk and File size
  * @author      Richard Dahlgren (MsHax085)
  */
-public class DiskFileSize {
+public class DiskMonitor {
     
-    private final Monitor monitor;
+    private final PerformanceMonitor monitor;
     private final String filePath;
     
     // -------------------------------------------------------------------------
@@ -43,7 +43,7 @@ public class DiskFileSize {
      * Constructor
      * 
      */
-    public DiskFileSize(final Monitor monitor) {
+    public DiskMonitor(final PerformanceMonitor monitor) {
         this.monitor = monitor;
         
         final File file = new File(this.monitor.getDataFolder(), "config.yml");

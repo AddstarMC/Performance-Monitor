@@ -1,7 +1,7 @@
 name: PerformanceMonitor
 version: 1.7.0
 author: MsHax085
-main: me.mshax085.performanceMonitor.Monitor
+main: me.mshax085.performanceMonitor.PerformanceMonitor
 
 commands:
   serverstate:

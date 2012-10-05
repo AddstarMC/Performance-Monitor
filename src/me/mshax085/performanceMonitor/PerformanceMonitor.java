@@ -23,34 +23,33 @@ import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.logging.Logger;
-import me.mshax085.performanceMonitor.disk.DiskFileSize;
 import me.mshax085.performanceMonitor.listeners.CommandListener;
-import me.mshax085.performanceMonitor.listeners.LoginListener;
-import me.mshax085.performanceMonitor.memory.MemoryMeter;
-import me.mshax085.performanceMonitor.messages.Broadcast;
-import me.mshax085.performanceMonitor.restart.RestartCounter;
-import me.mshax085.performanceMonitor.tps.TpsMeter;
+import me.mshax085.performanceMonitor.listeners.EventListener;
+import me.mshax085.performanceMonitor.monitors.DiskMonitor;
+import me.mshax085.performanceMonitor.monitors.MemoryMonitor;
+import me.mshax085.performanceMonitor.monitors.RestartMonitor;
+import me.mshax085.performanceMonitor.monitors.TpsMonitor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.mcstats.MetricsLite;
 
 /*
- * Monitor Class
+ * PerformanceMonitor Class
  * 
  * @package     me.mshax085.performanceMonitor
  * @category    StartUp - Organizer
  * @author      Richard Dahlgren (MsHax085)
  */
-public class Monitor extends JavaPlugin implements Runnable {
+public class PerformanceMonitor extends JavaPlugin implements Runnable {
     private static final Logger log = Logger.getLogger("Minecraft");
     private final Configuration configClass = new Configuration();
-    private LoginListener loginListener;
-    private RestartCounter restartCounter;
-    private DiskFileSize diskFileSize;
-    private Broadcast broadcast;
-    private MemoryMeter memoryMeter;
-    private TpsMeter tpsMeter;
+    private EventListener loginListener;
+    private RestartMonitor restartCounter;
+    private DiskMonitor diskFileSize;
+    private StatBroadcast broadcast;
+    private MemoryMonitor memoryMeter;
+    private TpsMonitor tpsMeter;
     private FileConfiguration config = null;
     private File configFile = null;
     private boolean latestVersion = true;
@@ -66,9 +65,9 @@ public class Monitor extends JavaPlugin implements Runnable {
      * @access  public
      * @return  Broadcaster
      */
-    public final Broadcast getBroadcaster() {
+    public final StatBroadcast getBroadcaster() {
         if (this.broadcast == null) {
-            this.broadcast = new Broadcast(this);
+            this.broadcast = new StatBroadcast(this);
         }
         return this.broadcast;
     }
@@ -104,14 +103,14 @@ public class Monitor extends JavaPlugin implements Runnable {
     /*
      * GetDiskFileSize
      * 
-     * Return DiskFileSize Class Refference
+     * Return DiskMonitor Class Refference
      * 
      * @access  public
-     * @return  DiskFileSize
+     * @return  DiskMonitor
      */
-    public final DiskFileSize getDiskFileSize() {
+    public final DiskMonitor getDiskFileSize() {
         if (this.diskFileSize == null) {
-            this.diskFileSize = new DiskFileSize(this);
+            this.diskFileSize = new DiskMonitor(this);
         }
         return this.diskFileSize;
     }
@@ -119,14 +118,14 @@ public class Monitor extends JavaPlugin implements Runnable {
     /*
      * GetMemoryMeter
      * 
-     * Return MemoryMeter Class Refference
+     * Return MemoryMonitor Class Refference
      * 
      * @access  public
-     * @return  MemoryMeter
+     * @return  MemoryMonitor
      */
-    public final MemoryMeter getMemoryMeter() {
+    public final MemoryMonitor getMemoryMeter() {
         if (this.memoryMeter == null) {
-            this.memoryMeter = new MemoryMeter();
+            this.memoryMeter = new MemoryMonitor();
         }
         return this.memoryMeter;
     }
@@ -134,24 +133,24 @@ public class Monitor extends JavaPlugin implements Runnable {
     /*
      * GetRestartCounter
      * 
-     * Return RestartCounter Class Refference
+     * Return RestartMonitor Class Refference
      * 
      * @access  public
-     * @return  RestartCounter
+     * @return  RestartMonitor
      */
-    public final RestartCounter getRestartCounter() {
+    public final RestartMonitor getRestartCounter() {
         return this.restartCounter;
     }
     
     /*
      * GetTpsMeter
      * 
-     * Return TpsMeter Class Refference
+     * Return TpsMonitor Class Refference
      * 
      * @access  public
-     * @return  TpsMeter
+     * @return  TpsMonitor
      */
-    public final TpsMeter getTpsMeter() {
+    public final TpsMonitor getTpsMeter() {
         return this.tpsMeter;
     }
     
@@ -189,7 +188,7 @@ public class Monitor extends JavaPlugin implements Runnable {
      */
     private void logMsg(final String msg) {
         final String logMsg = "[PerformanceMonitor " + this.getVersion() + "] " + msg;
-        Monitor.log.info(logMsg);
+        PerformanceMonitor.log.info(logMsg);
     }
 
     /*
@@ -334,21 +333,21 @@ public class Monitor extends JavaPlugin implements Runnable {
     private boolean validateListeners() {
         if (this.getConfigurationClass().showLastRestart) {
             if (this.restartCounter == null) {
-                this.restartCounter = new RestartCounter();
+                this.restartCounter = new RestartMonitor();
                 this.restartCounter.setStartTime();
             }
         }
         
         if (this.getConfigurationClass().showTps) {
             if (this.tpsMeter == null) {
-                this.tpsMeter = new TpsMeter(this);
+                this.tpsMeter = new TpsMonitor(this);
                 this.registerSchedulingTasks(false);
             }
         }
         
         if (this.getConfigurationClass().statusMessageUponLogin || this.getConfigurationClass().showUniquePlayerLogins) {
             if (this.loginListener == null) {
-                this.loginListener = new LoginListener(this);
+                this.loginListener = new EventListener(this);
                 this.getServer().getPluginManager().registerEvents(this.loginListener, this);
             }
         }

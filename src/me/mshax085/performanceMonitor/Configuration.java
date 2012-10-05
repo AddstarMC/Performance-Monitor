@@ -73,9 +73,9 @@ public class Configuration {
      * Update Configuration Stats
      * 
      * @access  public
-     * @param   Monitor
+     * @param   PerformanceMonitor
      */
-    public final void update(final Monitor monitor) {
+    public final void update(final PerformanceMonitor monitor) {
         final FileConfiguration config = monitor.getConfig();
         ConfigurationSection section;
         

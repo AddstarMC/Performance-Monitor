@@ -20,7 +20,7 @@
 package me.mshax085.performanceMonitor.listeners;
 
 import java.util.ArrayList;
-import me.mshax085.performanceMonitor.Monitor;
+import me.mshax085.performanceMonitor.PerformanceMonitor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -28,14 +28,14 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 /*
- * LoginListener Class
+ * EventListener Class
  * 
- * @package     me.mshax085.performanceMonitor.Monitor
+ * @package     me.mshax085.performanceMonitor.PerformanceMonitor
  * @category    Event Listening
  * @author      Richard Dahlgren (MsHax085)
  */
-public class LoginListener implements Listener {
-    private final Monitor monitor;
+public class EventListener implements Listener {
+    private final PerformanceMonitor monitor;
     private final ArrayList<String> names = new ArrayList();
     
     // -------------------------------------------------------------------------
@@ -44,7 +44,7 @@ public class LoginListener implements Listener {
      * Constructor
      * 
      */
-    public LoginListener(final Monitor mon) {
+    public EventListener(final PerformanceMonitor mon) {
         this.monitor = mon;
     }
 

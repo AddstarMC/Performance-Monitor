@@ -19,7 +19,7 @@
 
 package me.mshax085.performanceMonitor.listeners;
 
-import me.mshax085.performanceMonitor.Monitor;
+import me.mshax085.performanceMonitor.PerformanceMonitor;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -33,7 +33,7 @@ import org.bukkit.command.CommandSender;
  * @author      Richard Dahlgren (MsHax085)
  */
 public class CommandListener implements CommandExecutor {
-    private final Monitor monitor;
+    private final PerformanceMonitor monitor;
     
     // -------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ public class CommandListener implements CommandExecutor {
      * Constructor
      * 
      */
-    public CommandListener(final Monitor monitor) {
+    public CommandListener(final PerformanceMonitor monitor) {
         this.monitor = monitor;
     }
     

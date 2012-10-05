@@ -17,16 +17,16 @@
     * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package me.mshax085.performanceMonitor.memory;
+package me.mshax085.performanceMonitor.monitors;
 
 /*
- * MemoryMeter Class
+ * MemoryMonitor Class
  * 
  * @package     me.mshax085.performanceMonitor.Memory
  * @category    Memory Logging
  * @author      Richard Dahlgren (MsHax085)
  */
-public class MemoryMeter {
+public class MemoryMonitor {
     
     /*
      * GetFreeRam

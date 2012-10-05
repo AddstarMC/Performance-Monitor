@@ -17,13 +17,11 @@
     * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package me.mshax085.performanceMonitor.messages;
+package me.mshax085.performanceMonitor;
 
 import java.text.DateFormat;
 import java.util.Date;
-import me.mshax085.performanceMonitor.Configuration;
-import me.mshax085.performanceMonitor.Monitor;
-import me.mshax085.performanceMonitor.memory.MemoryMeter;
+import me.mshax085.performanceMonitor.monitors.MemoryMonitor;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Server;
@@ -32,15 +30,15 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /*
- * Broadcast Class
+ * StatBroadcast Class
  * 
  * @package     me.mshax085.performanceMonitor.messages
  * @category    broadcasting
  * @author      Richard Dahlgren (MsHax085)
  */
-public class Broadcast {
+public class StatBroadcast {
     
-    private final Monitor monitor;
+    private final PerformanceMonitor monitor;
     
     // -------------------------------------------------------------------------
     
@@ -48,7 +46,7 @@ public class Broadcast {
      * Constructor
      * 
      */
-    public Broadcast(final Monitor monitor) {
+    public StatBroadcast(final PerformanceMonitor monitor) {
         this.monitor = monitor;
     }
     
@@ -56,7 +54,7 @@ public class Broadcast {
     /*
      * BroadcastBackupStats
      * 
-     * Broadcast backup statistics
+     * StatBroadcast backup statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -93,7 +91,7 @@ public class Broadcast {
     /*
      * BroadcastDiskStats
      * 
-     * Broadcast disk statistics
+     * StatBroadcast disk statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -116,7 +114,7 @@ public class Broadcast {
     /*
      * BroadcastFullStatTable
      * 
-     * Broadcast all stats enabled
+     * StatBroadcast all stats enabled
      * 
      * @access  private
      * @param   CommandSender
@@ -156,7 +154,7 @@ public class Broadcast {
     /*
      * BroadcastMemoryStats
      * 
-     * Broadcast memory statistics
+     * StatBroadcast memory statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -215,7 +213,7 @@ public class Broadcast {
     /*
      * BroadcastPlayerStats
      * 
-     * Broadcast player statistics
+     * StatBroadcast player statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -275,7 +273,7 @@ public class Broadcast {
     /*
      * BroadcastStatTablePart
      * 
-     * Broadcast parts of stat table
+     * StatBroadcast parts of stat table
      * 
      * @access  private
      * @param   CommandSender
@@ -320,7 +318,7 @@ public class Broadcast {
     /*
      * BroadcastServerStats
      * 
-     * Broadcast Server Statistics
+     * StatBroadcast Server Statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -365,7 +363,7 @@ public class Broadcast {
     /*
      * BroadcastTimeStats
      * 
-     * Broadcast time stats
+     * StatBroadcast time stats
      * 
      * @access  private
      * @param   CommandSender
@@ -387,7 +385,7 @@ public class Broadcast {
     /*
      * BroadcastWorldStats
      * 
-     * Broadcast world statistics
+     * StatBroadcast world statistics
      * 
      * @access  private
      * @param   CommandSender
@@ -428,7 +426,7 @@ public class Broadcast {
      * @return  String
      */
     private String getServerStatus() {
-        final MemoryMeter memoryMeter = this.monitor.getMemoryMeter();
+        final MemoryMonitor memoryMeter = this.monitor.getMemoryMeter();
         final int totalMem = memoryMeter.getTotalRam();
         final int usedMem = totalMem - memoryMeter.getFreeRam();
 

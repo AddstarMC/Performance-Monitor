@@ -17,22 +17,22 @@
     * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package me.mshax085.performanceMonitor.tps;
+package me.mshax085.performanceMonitor.monitors;
 
 import java.util.LinkedList;
-import me.mshax085.performanceMonitor.Monitor;
+import me.mshax085.performanceMonitor.PerformanceMonitor;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 /*
- * TpsMeter Class
+ * TpsMonitor Class
  * 
  * @package     me.mshax085.performanceMonitor.Tps
  * @category    TPS Logging
  * @author      Richard Dahlgren (MsHax085)
  */
-public class TpsMeter implements Runnable {
-    private final Monitor monitor;
+public class TpsMonitor implements Runnable {
+    private final PerformanceMonitor monitor;
     private final LinkedList<Float> loggedTps = new LinkedList();
     private long lastCall = getMillis() - 3000L;
     private long lastWarning = 0L;
@@ -45,7 +45,7 @@ public class TpsMeter implements Runnable {
      * Constructor
      * 
      */
-    public TpsMeter(final Monitor mon) {
+    public TpsMonitor(final PerformanceMonitor mon) {
         this.monitor = mon;
     }
 

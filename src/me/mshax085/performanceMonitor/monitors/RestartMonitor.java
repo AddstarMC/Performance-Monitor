@@ -17,19 +17,19 @@
     * Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301  USA
  */
 
-package me.mshax085.performanceMonitor.restart;
+package me.mshax085.performanceMonitor.monitors;
 
-import me.mshax085.performanceMonitor.Monitor;
+import me.mshax085.performanceMonitor.PerformanceMonitor;
 import org.bukkit.ChatColor;
 
 /*
- * RestartCounter Class
+ * RestartMonitor Class
  * 
  * @package     me.mshax085.performanceMonitor.Restart
  * @category    Restart Logging
  * @author      Richard Dahlgren (MsHax085)
  */
-public class RestartCounter {
+public class RestartMonitor {
     private long startTime = 0L;
     
     // -------------------------------------------------------------------------
@@ -40,10 +40,10 @@ public class RestartCounter {
      * Get Last Restart TimeStamp
      * 
      * @access  public
-     * @param   Monitor
+     * @param   PerformanceMonitor
      * @return  String
      */
-    public final String getLastRestartTimeStamp(final Monitor monitor) {
+    public final String getLastRestartTimeStamp(final PerformanceMonitor monitor) {
         final ChatColor labelColor = monitor.getConfigurationClass().labelColor;
         final ChatColor valueColor = monitor.getConfigurationClass().valueColor;
         
