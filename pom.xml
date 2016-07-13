@@ -11,9 +11,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <scm>
-        <connection>scm:git:git@github.com:AddstarMC/PerformanceMonitor.git</connection>
-        <developerConnection>scm:git:git@github.com:AddstarMC/PerformanceMonitor.git</developerConnection>
-        <url>https://github.com/AddstarMC/PerformanceMonitor</url>
+        <connection>scm:git:git@github.com:AddstarMC/Performance-Monitor.git</connection>
+        <developerConnection>scm:git:git@github.com:AddstarMC/Performance-Monitor.git</developerConnection>
+        <url>https://github.com/AddstarMC/Performance-Monitor</url>
         <tag>master</tag>
     </scm>
     <distributionManagement>
