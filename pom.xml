@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>me.mshax085.performanceMonitor</groupId>
     <artifactId>PerformanceMonitor</artifactId>
-    <version>1.9.0</version>
+    <version>1.9.1-SNAPSHOT</version>
     <name>PerformanceMonitor</name>
     <properties>
         <pluginversion>${project.version}-${buildnumber}</pluginversion>
@@ -14,7 +14,7 @@
         <connection>scm:git:git@github.com:AddstarMC/Performance-Monitor.git</connection>
         <developerConnection>scm:git:git@github.com:AddstarMC/Performance-Monitor.git</developerConnection>
         <url>https://github.com/AddstarMC/Performance-Monitor</url>
-        <tag>PerformanceMonitor-1.9.0</tag>
+        <tag>master</tag>
     </scm>
     <distributionManagement>
         <repository>
