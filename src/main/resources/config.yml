@@ -1,0 +1,48 @@
+# Supported Colors: aqua,black,blue,darkaqua,darkblue,darkgray,darkgreen,
+# darkpurple,darkred,gold,gray,green,lightpurple,red,white,yellow
+# -------------------------------
+# Default titleColor = darkgreen
+# Default labelColor = aqua
+# Default valueColor = gold
+time:
+  showServerTime: true
+  showLastRestart: true
+memory:
+  showMaxMemory: true
+  showTotalMemory: true
+  showFreeMemory: true
+  showUsedMemory: false
+disk:
+  showLogSize: true
+  showFreeDiskSize: true
+backup:
+  showLastBackup: false
+  showGeneratedBackups: false
+world:
+  showWorldSize: true
+  showLoadedChunks: true
+  showLivingEntitiesInWorld: true
+  showEntitiesInWorld: true
+player:
+  showOnlinePlayersVsMaxSlots: false
+  showUniquePlayerLogins: false
+  showCreativePlayers: false
+  showSurvivalPlayers: false
+  showAdventurePlayers: false
+  showTotalOperators: false
+server:
+  showBukkitVersion: true
+  showServerIpAndPort: false
+  showLoadedPlugins: true
+  calculateServerHealth: true
+  tps:
+    showTps: true
+    useAverageTps: true
+    warnWhenTpsIsLow: false
+    warnAtTpsLevel: 15
+additional_options:
+  checkForUpdatesOnStart: true
+  statusMessageUponLogin: true
+  titleColor: darkgreen
+  labelColor: darkgray
+  valueColor: gold
