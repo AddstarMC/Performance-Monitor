@@ -32,6 +32,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
 /*
@@ -270,7 +271,7 @@ public class PerformanceMonitor extends JavaPlugin {
 
         final InputStream defaultConfigStream = this.getResource("config.yml");
         if (defaultConfigStream != null) {
-            YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(defaultConfigStream);
+            YamlConfiguration defaultConfig = YamlConfiguration.loadConfiguration(new InputStreamReader(defaultConfigStream));
             this.config.setDefaults(defaultConfig);
             logMsg("Loading default configuration!", false);
         }

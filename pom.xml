@@ -18,12 +18,12 @@
     </scm>
     <distributionManagement>
         <repository>
-            <id>maven.addstar.com.au</id>
+            <id>addstar-repo</id>
             <name>maven.addstar.com.au-releases</name>
             <url>http://maven.addstar.com.au/artifactory/ext-release-local</url>
         </repository>
         <snapshotRepository>
-            <id>maven.addstar.com.au</id>
+            <id>addstar-snapshot-repo</id>
             <name>maven.addstar.com.au-snapshots</name>
             <url>http://maven.addstar.com.au/artifactory/ext-snapshot-local</url>
         </snapshotRepository>
@@ -68,19 +68,14 @@
     <dependencies>
         <dependency>
             <groupId>org.spigotmc</groupId>
-            <artifactId>spigot</artifactId>
-            <version>1.10-R0.1-SNAPSHOT</version>
+            <artifactId>spigot-api</artifactId>
+            <version>1.11-R0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mcstats.bukkit</groupId>
-            <artifactId>metrics</artifactId>
-            <version>R8-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
