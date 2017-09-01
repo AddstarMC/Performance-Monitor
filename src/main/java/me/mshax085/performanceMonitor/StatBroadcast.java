@@ -163,15 +163,19 @@ public class StatBroadcast {
             cs.sendMessage(config.labelColor + "    Max memory for server: " + config.valueColor + max + config.labelColor + " MB");
         }
         if (isAllowedPermission(config, cs.hasPermission("pmonitor.show.totalMemory"), viewAll, config.showTotalMemory)) {
-            cs.sendMessage(config.labelColor + "    Total allocated memory: " + config.valueColor + total + config.labelColor + " MB (" + total * 100 / max + "%)");
+            cs.sendMessage(config.labelColor + "    Total allocated memory: " + config.valueColor + total + config.labelColor + " MB (" + total * 100 / max + "% max)");
         }
         if (isAllowedPermission(config, cs.hasPermission("pmonitor.show.freeMemory"), viewAll, config.showFreeMemory)) {
             int free = this.monitor.getMemoryMeter().getFreeRam();
-            cs.sendMessage(config.labelColor + "    Free allocated memory: " + config.valueColor + free + config.labelColor + " MB (" + free * 100 / total + "%)");
+            cs.sendMessage(config.labelColor + "    Free allocated memory: " + config.valueColor + free + config.labelColor + " MB (" + free * 100 / total + "% total)");
+
+            int freeMax = max - total + free;
+            cs.sendMessage(config.labelColor + "    Free memory: " + config.valueColor + freeMax + config.labelColor + " MB (" + freeMax * 100 / max + "% max)");
+
         }
         if (isAllowedPermission(config, cs.hasPermission("pmonitor.show.usedMemory"), viewAll, config.showUsedMemory)) {
             int used = this.monitor.getMemoryMeter().getUsedRam();
-            cs.sendMessage(config.labelColor + "    Used allocated memory: " + config.valueColor + used + config.labelColor + " MB (" + used * 100 / total + "%)");
+            cs.sendMessage(config.labelColor + "    Used memory: " + config.valueColor + used + config.labelColor + " MB (" + used * 100 / max + "% max)");
         }
     }
 
